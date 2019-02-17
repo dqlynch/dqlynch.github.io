@@ -1,12 +1,12 @@
 let cube = null;
 
 // TODO for randomizing cube order
-// function shuffleArray(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//     }
-// }
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 // Populate total words field
 $( document ).ready(function() {
@@ -15,7 +15,17 @@ $( document ).ready(function() {
     cube = data;  // letters, req_letter, num_perms, perms
     $('#totalwords').html(cube['num_perms']);
 
-    // TODO Populate cube programatically
+    // Shuffle letters
+    let shuffled = cube.letters.replace(cube.req_letter, '');
+    shuffled = shuffled.split('').sort(function(){return 0.5-Math.random()}).join('');
+
+    // Populate table with letters
+    for (let i = 0; i < 8; ++i) {
+      let id = '#l' + i.toString();
+      $(id).html(shuffled[i].toUpperCase());
+    }
+    $('#lcenter').html(cube.req_letter.toUpperCase());
+
   });
 });
 
