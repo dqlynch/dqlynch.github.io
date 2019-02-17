@@ -1,5 +1,12 @@
 let cube = null;
 
+// TODO for randomizing cube order
+// function shuffleArray(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }
 
 // Populate total words field
 $( document ).ready(function() {
@@ -8,8 +15,9 @@ $( document ).ready(function() {
     cube = data;  // letters, req_letter, num_perms, perms
     $('#totalwords').html(cube['num_perms']);
     console.log('here');
-  });
 
+    // TODO Populate cube programatically
+  });
 });
 
 function submitword() {
