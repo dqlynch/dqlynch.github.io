@@ -1,7 +1,8 @@
 ---
 layout: default
 title: WordCube
-header: WordCube
+header: Extreme WordCube
+tagline: Searching rule-constrained word permutations
 ---
 <link rel="stylesheet" type="text/css" href="wordcube.css">
 
@@ -9,13 +10,13 @@ header: WordCube
 ### Maximizing WordCube
 The [wordcube game](http://www.stealthcopter.com/wordcube/) (really it's a square) involves finding all possible words that you can spell using the given tiles. The words must be length 4 or higher, and _must use the center tile_.
 
-Below is the _hardest_ possible wordcube board... Well, at least, the one with the most words.
+So what is the _hardest_ possible wordcube board? Well, it's hard to say, but we can start by finding the one with the most possible words.
 
-The backbone of my [scrabble solver](https://github.com/dqlynch/scrabblesolver), the [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of (9-length word, contraining letter) with the _most valid permutations_ (according to the rules of wordcube).
+The directed acyclic word graph, or [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of `(9-length word, contraining letter)` with the _most valid permutations_ (according to the rules of wordcube).
+
+The code for generating permutations can be found [here](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/perm_count.py), which is based on a [scrabble-focused extension](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/scrabble_dawg.py) of the [DAWG-Python](https://github.com/pytries/DAWG-Python) library.
 
 This word (it's a secret) has a whopping 592 valid permutations! That is, it is possible to make 592 words of length 4 or greater that all use the center tile (in this case, 'e').
-
-The code for generating permutations can be found [here](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/perm_count.py), which is based on my [extension](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/scrabble_dawg.py) of the [DAWG-Python](https://github.com/pytries/DAWG-Python) library.
 
 Note that I don't have access to the dictionary/wordlist that the original author of wordcube uses, so there may be some differences. This wordcube uses the Enhanced North American Benchmark Lexicon 2k (ENABLE2k) word list, commonly used for scrabble or words with friends. This word list tends to include some uncommon, niche, and obscure technical words, so be warned.
 
