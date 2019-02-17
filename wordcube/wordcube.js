@@ -2,9 +2,16 @@ let cube = {};
 
 // Populate total words field
 $( document ).ready(function() {
-  // Load cube data
+  // Load 9max cube data
   $.getJSON( "./cube_9max.json", function( data ) {
     let key = '9max';
+    cube[key] = data;  // letters, req_letter, num_perms, perms
+    populate_cube(key);
+  });
+
+  // Load 9min cube data
+  $.getJSON( "./cube_9min.json", function( data ) {
+    let key = '9min';
     cube[key] = data;  // letters, req_letter, num_perms, perms
     populate_cube(key);
   });

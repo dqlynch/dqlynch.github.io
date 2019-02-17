@@ -1,19 +1,19 @@
 /* 9 cube table */
-.cube9max {
+.cube9 {
   width: 60%;
 }
 
-.cube9max td {
+.cube9 td {
   position: relative;
 }
 
-.cube9max td:after {
+.cube9 td:after {
   content: '';
   display: block;
   margin-top: 100%;
 }
 
-.cube9max td .tile {
+.cube9 td .tile {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,7 +22,7 @@
   background: deepskyblue;
 }
 
-.cube9max td .ctile {
+.cube9 td .ctile {
 	position: absolute;
   top: 0;
   bottom: 0;

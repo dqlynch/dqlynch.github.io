@@ -7,7 +7,7 @@ tagline: Searching rule-constrained word permutations
 <link rel="stylesheet" type="text/css" href="wordcube.css">
 
 <div markdown="1">
-### Maximizing WordCube
+### Maximizing WordCube words
 The [wordcube game](http://www.stealthcopter.com/wordcube/) (really it's a square) involves finding all possible words that you can spell using the given tiles. The words must be length 4 or higher, and _must use the center tile_.
 
 So what is the _hardest_ possible wordcube board? Well, it's hard to say, but we can start by finding the one with the most possible words.
@@ -39,7 +39,7 @@ Try it below!
   <!--idfk lol...
     https://stackoverflow.com/questions/20456694/grid-of-responsive-squares/20457076#20457076 -->
 
-  <table class="cube9max">
+  <table class="cube9">
     <tbody>
       <tr>
         <td><div class=tile><div class=ltable> <div class=letter id=l9max0>  </div></div></div></td>
@@ -84,10 +84,71 @@ Try it below!
 {:/}
 
 
+<div markdown="1">
+---
+### Minimizing WordCube words
+We can also find the wordcube with the minimum number of permutations. It turns out that the minimum permutations is one: there exists a word whose only permutation, given the constraining letter, is itself.
+
+In fact, there are three such words: _monocoque_, with the constraining letter _'q'_, _kibbutzim_, with the constraining letter _'m'_, and the word in the wordcube below.
+
+Notably, the word in the wordcube below is its own only permutation when constrained with either _'v'_, _'i'_, or _'o'_.
+
+</div>
+<br>
+
+
+
+{::nomarkdown}
+<div markdown="0">
+  <!--wordcube table-->
+  <table class="cube9">
+    <tbody>
+      <tr>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min0>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min1>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min2>  </div></div></div></td>
+      </tr>
+
+      <tr>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min3>  </div></div></div></td>
+        <td><div class=ctile><div class=ltable> <div class=letter id=l9mincenter>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min4>  </div></div></div></td>
+      </tr>
+
+      <tr>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min5>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min6>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9min7>  </div></div></div></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- wordcube input-->
+  <p>
+    <input type="text" name="word_entry" id="word_entry9min" autocomplete="off" onkeydown="
+      if (event.keyCode == 13) {
+        $('#submitword9min').click()
+      }
+    ">
+    <input type="submit" id="submitword9min" value="submit" onclick="submitword('9min')">
+  </p>
+
+  <!-- Solutions-->
+  <p>
+    words found: <span id="numfound9min">0</span> out of <span id="totalwords9min">0</span>
+  </p>
+  <p id="foundwords9min"> </p>
+
+  <p><input type="submit" id="reveal9min" value="Reveal Solutions" onclick="reveal('9min')"></p>
+  <p id="solutions9min"> </p>
+</div>
+{:/}
+
+
 
 <div markdown="1">
 ---
-<br>
 ### Larger WordCubes
 We can find permutations for words of any length. There are two 25-letter words (in the ENABLE2k dictionary), which means we can make a 5x5 wordcube.
 
