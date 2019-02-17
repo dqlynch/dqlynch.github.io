@@ -14,7 +14,6 @@ $( document ).ready(function() {
   $.getJSON( "./cube_9.json", function( data ) {
     cube = data;  // letters, req_letter, num_perms, perms
     $('#totalwords').html(cube['num_perms']);
-    console.log('here');
 
     // TODO Populate cube programatically
   });
@@ -26,19 +25,19 @@ function submitword() {
   //console.log(word);
 
   // Check word
-  while(cube == null);  // wait u heathens
+  while (cube == null);  // wait u heathens
   if (cube.perms.includes(word)) {
     console.log('valid word: ' + word);
     cube.perms.splice($.inArray(word, cube.perms), 1);
 
     // Increment number found
     let num_found = parseInt($('#numfound').html()) + 1;
-    console.log(num_found);
     $('#numfound').html(num_found);
 
     // Add word to found list
-    let found_words = $('#foundwords').html();
-    if (found_words) {
+    let found_words = $.trim($('#foundwords').html());
+    console.log(found_words);
+    if (found_words.length != 0) {
       $('#foundwords').html(found_words + ', ' + word);
     }
     else {
@@ -48,4 +47,31 @@ function submitword() {
 
   // Clear text entry
   $('#word_entry').val('');
+}
+
+function reveal() {
+  while (cube == null);
+
+  let sols = '';
+  for (perm of cube.perms) {
+    if (sols == '') {
+      sols += perm;
+    }
+    else {
+      sols += ', ' + perm;
+    }
+  }
+  $('#solutions').html(sols);
+
+  // Switch button to hide button
+  $('#reveal').val('Hide Solutions');
+  $('#reveal').attr("onclick", "hide()");
+}
+
+function hide() {
+  $('#solutions').html('');
+
+  // Switch to reveal button
+  $('#reveal').val('Reveal Solutions');
+  $('#reveal').attr("onclick", "reveal()");
 }
