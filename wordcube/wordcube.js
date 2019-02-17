@@ -31,8 +31,8 @@ $( document ).ready(function() {
 
 function submitword() {
   // Get word
-  let word = $('#word_entry').val();
-  //console.log(word);
+  let word = $('#word_entry').val().toLowerCase();
+  console.log(word);
 
   // Check word
   while (cube == null);  // wait u heathens
