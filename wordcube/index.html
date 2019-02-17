@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="wordcube.css">
+  </head>
+  <body>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="./wordcube.js"></script>
+
+    <table id="wordcubetable">
+
+    <!--wordcube table-->
+    <!--idfk lol...
+      https://stackoverflow.com/questions/20456694/grid-of-responsive-squares/20457076#20457076 -->
+    <tbody>
+      <tr>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l0>t</div></div></div>
+        </td>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l1>e</div></div></div>
+        </td>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l2>s</div></div></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l3>T</div></div></div>
+        </td>
+        <td>
+          <div class=ctile><div class=ltable> <div class=letter id=l4>i</div></div></div>
+        </td>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l5>n</div></div></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l6>g</div></div></div>
+        </td>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l7>T</div></div></div>
+        </td>
+        <td>
+          <div class=tile><div class=ltable> <div class=letter id=l8>T</div></div></div>
+        </td>
+      </tr>
+
+    </tbody>
+    </table>
+
+    <!-- wordcube input-->
+    <p>
+      <input type="text" name="word_entry" id="word_entry" autocomplete="off" onkeydown="
+        if (event.keyCode == 13) {
+          $('#submitword').click()
+        }
+      ">
+      <input type="submit" id="submitword" value="submit" onclick="submitword()">
+    </p>
+
+    <p>
+      words found: <span id="numfound">0</span> out of <span id="totalwords">0</span>
+    </p>
+    <p id="foundwords"></p>
+
+  </body>
+</html>
