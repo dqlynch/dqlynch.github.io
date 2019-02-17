@@ -12,7 +12,7 @@ The [wordcube game](http://www.stealthcopter.com/wordcube/) (really it's a squar
 
 So what is the _hardest_ possible wordcube board? Well, it's hard to say, but we can start by finding the one with the most possible words.
 
-The directed acyclic word graph, or [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of `(9-length word, contraining letter)` with the _most valid permutations_ (according to the rules of wordcube).
+The directed acyclic word graph, or [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of `(9-length word, constraining letter)` with the _most valid permutations_ (according to the rules of wordcube).
 
 The code for generating permutations can be found [here](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/perm_count.py), which is based on a [scrabble-focused extension](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/scrabble_dawg.py) of the [DAWG-Python](https://github.com/pytries/DAWG-Python) library.
 
@@ -89,9 +89,9 @@ Try it below!
 ### Minimizing WordCube words
 We can also find the wordcube with the minimum number of permutations. It turns out that the minimum permutations is one: there exists a word whose only permutation, given the constraining letter, is itself.
 
-In fact, there are three such words: _monocoque_, with the constraining letter _'q'_, _kibbutzim_, with the constraining letter _'m'_, and the word in the wordcube below.
+In fact, there are three such words: `monocoque`, with the constraining letter `q`, `kibbutzim`, with the constraining letter `m`, and the word in the wordcube below.
 
-Notably, the word in the wordcube below is its own only permutation when constrained with either _'v'_, _'i'_, or _'o'_.
+Notably, the word in the wordcube below is its own only permutation when constrained with either `v`, `i`, or `o`.
 
 </div>
 <br>
