@@ -15,11 +15,13 @@ The backbone of my [scrabble solver](https://github.com/dqlynch/scrabblesolver),
 
 This word (it's a secret) has a whopping 592 valid permutations! That is, it is possible to make 592 words of length 4 or greater that all use the center tile (in this case, 'e').
 
+The code for generating permutations can be found [here](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/perm_count.py), which is based on my [extension](https://github.com/dqlynch/scrabblesolver/blob/master/scrabble_solver/scrabble_dawg.py) of the [DAWG-Python](https://github.com/pytries/DAWG-Python) library.
+
 Note that I don't have access to the dictionary/wordlist that the original author of wordcube uses, so there may be some differences. This wordcube uses the Enhanced North American Benchmark Lexicon 2k (ENABLE2k) word list, commonly used for scrabble or words with friends. This word list tends to include some uncommon, niche, and obscure technical words, so be warned.
 
 Try it below!
-
 </div>
+<br>
 
 {::nomarkdown}
 <div markdown="0">
@@ -86,9 +88,11 @@ Try it below!
 ---
 <br>
 ### Larger WordCubes
-We can find permutations for words of any length. There are 2 25-letter words (in the ENABLE2k dictionary), which means we can make a 5x5 wordcube. Below is the 5x5 wordcube with the most possible permutations: a ridiculous 5745 valid words.
+We can find permutations for words of any length. There are two 25-letter words (in the ENABLE2k dictionary), which means we can make a 5x5 wordcube.
 
+Below is the 5x5 wordcube with the most possible permutations. Good luck!
 </div>
+<br>
 
 {::nomarkdown}
 <table class="cube25">
