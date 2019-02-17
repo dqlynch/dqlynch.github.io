@@ -1,24 +1,24 @@
 ---
 layout: default
 title: WordCube
-header: Maximizing WordCube
+header: WordCube
 ---
 <link rel="stylesheet" type="text/css" href="wordcube.css">
 
 <div markdown="1">
-I present the _hardest_ possible wordcube board... Well, at least, the one with the most words.
-
+### Maximizing WordCube
 The [wordcube game](http://www.stealthcopter.com/wordcube/) (really it's a square) involves finding all possible words that you can spell using the given tiles. The words must be length 4 or higher, and _must use the center tile_.
 
-The backbone of my [scrabble solver](https://github.com/dqlynch/scrabblesolver), the [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion and word permutations. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of (9-length word, contraining letter) with the _most valid permutations_ (according to the rules of wordcube).
+Below is the _hardest_ possible wordcube board... Well, at least, the one with the most words.
 
-This word (it's a secret) has a whopping 592 valid permutations! That is, you can make 592 words of length 4 or greater that all use the center tile (in this case, 'e').
+The backbone of my [scrabble solver](https://github.com/dqlynch/scrabblesolver), the [DAWG](https://en.wikipedia.org/wiki/Suffix_automaton), is a powerful tool for prefix completion. Using this, it is relatively trivial to generate all word permutations of every 9-length word, and from there find the pair of (9-length word, contraining letter) with the _most valid permutations_ (according to the rules of wordcube).
 
-Note that I don't have access to the dictionary/wordlist that the original author of wordcube uses, so there may be some differences. I am using the Enhanced North American Benchmark Lexicon 2k (ENABLE2k) word list, commonly used for scrabble or words with friends. This word list tends to include some uncommon, niche, and obscure technical words, so be warned.
+This word (it's a secret) has a whopping 592 valid permutations! That is, it is possible to make 592 words of length 4 or greater that all use the center tile (in this case, 'e').
+
+Note that I don't have access to the dictionary/wordlist that the original author of wordcube uses, so there may be some differences. This wordcube uses the Enhanced North American Benchmark Lexicon 2k (ENABLE2k) word list, commonly used for scrabble or words with friends. This word list tends to include some uncommon, niche, and obscure technical words, so be warned.
 
 Try it below!
 
----
 </div>
 
 {::nomarkdown}
@@ -36,42 +36,24 @@ Try it below!
   <!--idfk lol...
     https://stackoverflow.com/questions/20456694/grid-of-responsive-squares/20457076#20457076 -->
 
-  <table id="wordcubetable">
+  <table class="cube9max">
     <tbody>
       <tr>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l0> I </div></div></div>
-        </td>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l1> S </div></div></div>
-        </td>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l2> A </div></div></div>
-        </td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max0>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max1>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max2>  </div></div></div></td>
       </tr>
 
       <tr>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l3> L </div></div></div>
-        </td>
-        <td>
-          <div class=ctile><div class=ltable> <div class=letter id=lcenter> E </div></div></div>
-        </td>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l4> N </div></div></div>
-        </td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max3>  </div></div></div></td>
+        <td><div class=ctile><div class=ltable> <div class=letter id=l9maxcenter>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max4>  </div></div></div></td>
       </tr>
 
       <tr>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l5> R </div></div></div>
-        </td>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l6> T </div></div></div>
-        </td>
-        <td>
-          <div class=tile><div class=ltable> <div class=letter id=l7> P </div></div></div>
-        </td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max5>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max6>  </div></div></div></td>
+        <td><div class=tile><div class=ltable> <div class=letter id=l9max7>  </div></div></div></td>
       </tr>
 
     </tbody>
@@ -79,21 +61,97 @@ Try it below!
 
   <!-- wordcube input-->
   <p>
-    <input type="text" name="word_entry" id="word_entry" autocomplete="off" onkeydown="
+    <input type="text" name="word_entry" id="word_entry9max" autocomplete="off" onkeydown="
       if (event.keyCode == 13) {
-        $('#submitword').click()
+        $('#submitword9max').click()
       }
     ">
-    <input type="submit" id="submitword" value="submit" onclick="submitword()">
+    <input type="submit" id="submitword9max" value="submit" onclick="submitword('9max')">
   </p>
-
-  <p>
-    words found: <span id="numfound">0</span> out of <span id="totalwords">0</span>
-  </p>
-  <p id="foundwords"> </p>
 
   <!-- Solutions-->
-  <p><input type="submit" id="reveal" value="Reveal Solutions" onclick="reveal()"></p>
-  <p id="solutions"> </p>
+  <p>
+    words found: <span id="numfound9max">0</span> out of <span id="totalwords9max">0</span>
+  </p>
+  <p id="foundwords9max"> </p>
+
+  <p><input type="submit" id="reveal9max" value="Reveal Solutions" onclick="reveal('9max')"></p>
+  <p id="solutions9max"> </p>
 </div>
+{:/}
+
+
+
+<div markdown="1">
+---
+<br>
+### Larger WordCubes
+We can find permutations for words of any length. There are 2 25-letter words (in the ENABLE2k dictionary), which means we can make a 5x5 wordcube. Below is the 5x5 wordcube with the most possible permutations: a ridiculous 5745 valid words.
+
+</div>
+
+{::nomarkdown}
+<table class="cube25">
+  <tbody>
+    <tr>
+      <td><div class=tile><div class=ltable> <div class=letter id=l250>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l251>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l252>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l253>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l254>  </div></div></div></td>
+    </tr>
+
+    <tr>
+      <td><div class=tile><div class=ltable> <div class=letter id=l255>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l256>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l257>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l258>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l259>  </div></div></div></td>
+    </tr>
+
+    <tr>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2510>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2511>  </div></div></div></td>
+      <td><div class=ctile><div class=ltable> <div class=letter id=l25center>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2512>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2513>  </div></div></div></td>
+    </tr>
+
+    <tr>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2514>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2515>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2516>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2517>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2518>  </div></div></div></td>
+    </tr>
+
+    <tr>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2519>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2520>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2521>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2522>  </div></div></div></td>
+      <td><div class=tile><div class=ltable> <div class=letter id=l2523>  </div></div></div></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<!-- wordcube input-->
+<p>
+  <input type="text" name="word_entry" id="word_entry25" autocomplete="off" onkeydown="
+    if (event.keyCode == 13) {
+      $('#submitword25').click()
+    }
+  ">
+  <input type="submit" id="submitword25" value="submit" onclick="submitword('25')">
+</p>
+
+<!-- Solutions-->
+<p>
+  words found: <span id="numfound25">0</span> out of <span id="totalwords25">0</span>
+</p>
+<p id="foundwords25"> </p>
+
+<p><input type="submit" id="reveal25" value="Reveal Solutions" onclick="reveal('25')"></p>
+<p id="solutions25"> </p>
 {:/}

@@ -1,19 +1,19 @@
-#wordcubetable {
+/* 9 cube table */
+.cube9max {
   width: 60%;
 }
 
-td {
-  width: 30%;
+.cube9max td {
   position: relative;
 }
 
-td:after {
+.cube9max td:after {
   content: '';
   display: block;
   margin-top: 100%;
 }
 
-td .tile {
+.cube9max td .tile {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,7 +22,7 @@ td .tile {
   background: deepskyblue;
 }
 
-td .ctile {
+.cube9max td .ctile {
 	position: absolute;
   top: 0;
   bottom: 0;
@@ -32,6 +32,41 @@ td .ctile {
 
 }
 
+/* 25 cube table */
+.cube25 {
+  width: 60%;
+}
+
+.cube25 td {
+  position: relative;
+}
+
+.cube25 td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+
+.cube25 td .tile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: deepskyblue;
+}
+
+.cube25 td .ctile {
+	position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: dodgerblue;
+
+}
+
+/* share table letters */
 .ltable {
   display:table;
   height:100%;
