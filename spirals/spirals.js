@@ -20,7 +20,7 @@ function drawTriangles(context, height, width, grid_div=10) {
   let points = [];
   for (let i = 0; i <= grid_div; ++i) {
     for (let j = 0; j <= grid_div; ++j) {
-      // Random offsets
+      // Randomly offset points
       let ioff = (Math.random() - 0.5) * (1)*(height/grid_div)
       if (i == 0 || i == grid_div) {
         ioff = 0
